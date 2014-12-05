@@ -27,10 +27,10 @@ public class Operator {
         // false->  trace from a destin
         directAirports = new HashSet<Airport>();
         Set<String> directFlights = traceDir ?
-                basicOperator.getStationByName(sName).getGoFlights() :
-                basicOperator.getStationByName(sName).getComeFlights();
+                basicOperator.getAirportByName(sName).getGoFlights() :
+                basicOperator.getAirportByName(sName).getComeFlights();
         for (String df : directFlights) {
-            directAirports.add(basicOperator.getStationByName(
+            directAirports.add(basicOperator.getAirportByName(
                             traceDir ?
                                     basicOperator.getFlightByNum(df).getDestin() :
                                     basicOperator.getFlightByNum(df).getDepart())
@@ -46,8 +46,8 @@ public class Operator {
         Set<Airport> s2 = getDirectStations(destin, toDestin);
         s2.retainAll(s1);   // find intersection (candidate transferts)
         if (!s2.isEmpty()) {
-            Set<String> flightNumsFromDepart = basicOperator.getStationByName(depart).getGoFlights();
-            Set<String> flightNumsToDestin = basicOperator.getStationByName(destin).getComeFlights();
+            Set<String> flightNumsFromDepart = basicOperator.getAirportByName(depart).getGoFlights();
+            Set<String> flightNumsToDestin = basicOperator.getAirportByName(destin).getComeFlights();
             ArrayList<Flight> flightArr;
             Flight flightFromDepart, flightToDestin;
             long diff;

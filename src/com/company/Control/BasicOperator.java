@@ -28,7 +28,7 @@ public class BasicOperator {
         return airports;
     }
 
-    public Airport getStationByName(String name) {
+    public Airport getAirportByName(String name) {
         Airport airport = null;
         for (Airport s : airports) {
             if (s.getName().equalsIgnoreCase(name)) {
