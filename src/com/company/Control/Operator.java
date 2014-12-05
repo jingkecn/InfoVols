@@ -21,7 +21,7 @@ public class Operator {
         basicOperator = new BasicOperator(filename);
     }
 
-    public Set<Airport> getDirectAirports(String sName, boolean traceDir) {
+    public Set<Airport> getDirectlyRelatedAirports(String sName, boolean traceDir) {
         // traceDir indicates the data tracing direction:
         // true ->  trace from a depart
         // false->  trace from a destin
@@ -42,8 +42,8 @@ public class Operator {
     public Set<ArrayList<Flight>> getChangeFlight(String depart, String destin) {
         changeFlight = new HashSet<ArrayList<Flight>>();
         final boolean fromDepart = true, toDestin = false;
-        Set<Airport> airportsFromDepart = getDirectAirports(depart, fromDepart);
-        Set<Airport> airportsToDestin = getDirectAirports(destin, toDestin);
+        Set<Airport> airportsFromDepart = getDirectlyRelatedAirports(depart, fromDepart);
+        Set<Airport> airportsToDestin = getDirectlyRelatedAirports(destin, toDestin);
         airportsToDestin.retainAll(airportsFromDepart);   // find intersection (candidate transferts)
         if (!airportsToDestin.isEmpty()) {
             Set<String> flightNumsFromDepart = basicOperator.getAirportByName(depart).getGoFlights();
