@@ -39,7 +39,7 @@ public class Operator {
         return directAirports;
     }
 
-    public Set<ArrayList<Flight>> getChangeFlight(String depart, String destin) {
+    public Set<ArrayList<Flight>> getTransfertRoutines(String depart, String destin) {
         changeFlight = new HashSet<ArrayList<Flight>>();
         final boolean fromDepart = true, toDestin = false;
         Set<Airport> airportsFromDepart = getDirectlyRelatedAirports(depart, fromDepart);

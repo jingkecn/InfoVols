@@ -54,7 +54,7 @@ public class TestUnit {
         String depart = Keyboard.readString().trim().toUpperCase();
         System.out.print("Please enter an airport name as destin: ");
         String destin = Keyboard.readString().trim().toUpperCase();
-        Set<ArrayList<Flight>> changeFlights = operator.getChangeFlight(depart, destin);
+        Set<ArrayList<Flight>> changeFlights = operator.getTransfertRoutines(depart, destin);
         System.out.println(seperation);
         System.out.println(
                 "With once transfert, you can reach from [" + depart
