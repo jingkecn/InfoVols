@@ -31,7 +31,7 @@ public class TestUnit {
         System.out.print("Please enter an airport name as depart: ");
         String depart = Keyboard.readString().trim().toUpperCase();
         final boolean fromDepart = true;
-        Set<Airport> airports = operator.getDirectStations(depart, fromDepart);
+        Set<Airport> airports = operator.getDirectAirports(depart, fromDepart);
         System.out.println(seperation);
         if (!airports.isEmpty()) {
             Set<String> stationNames = new HashSet<String>();
