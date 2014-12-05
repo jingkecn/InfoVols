@@ -26,15 +26,17 @@ public class Operator {
         // true ->  trace from a depart
         // false->  trace from a destin
         directAirports = new HashSet<Airport>();
-        Set<String> directFlights = traceDir ?
-                basicOperator.getAirportByName(sName).getGoFlights() :
-                basicOperator.getAirportByName(sName).getComeFlights();
-        for (String df : directFlights) {
-            directAirports.add(basicOperator.getAirportByName(
-                            traceDir ?
-                                    basicOperator.getFlightByNum(df).getDestin() :
-                                    basicOperator.getFlightByNum(df).getDepart())
-            );
+        if (basicOperator.getAirportByName(sName) != null){
+            Set<String> directFlights = traceDir ?
+                    basicOperator.getAirportByName(sName).getGoFlights() :
+                    basicOperator.getAirportByName(sName).getComeFlights();
+            for (String df : directFlights) {
+                directAirports.add(basicOperator.getAirportByName(
+                                traceDir ?
+                                        basicOperator.getFlightByNum(df).getDestin() :
+                                        basicOperator.getFlightByNum(df).getDepart())
+                );
+            }
         }
         return directAirports;
     }
