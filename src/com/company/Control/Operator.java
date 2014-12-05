@@ -15,7 +15,6 @@ public class Operator {
     private BasicOperator basicOperator;
     private Set<Airport> directAirports;
     private Set<ArrayList<Flight>> changeFlight;
-    private Set<ArrayList<Flight>> testFlight;
     private Set<Airport> connectedAirports;
 
     public Operator(String filename) throws ParseException {
@@ -23,6 +22,9 @@ public class Operator {
     }
 
     public Set<Airport> getDirectStations(String sName, boolean traceDir) {
+        // traceDir indicates the data tracing direction:
+        // true ->  trace from a depart
+        // false->  trace from a destin
         directAirports = new HashSet<Airport>();
         Set<String> directFlights = traceDir ?
                 basicOperator.getStationByName(sName).getGoFlights() :
